@@ -405,22 +405,22 @@
                         </a>
                     </li>
                     <li class="menu-item">
-                        <a href="{{ route('second', ['Hotel', 'add-hotel']) }}" class="menu-link">
+                        <a href="{{ route('second', ['users', 'role']) }}" class="menu-link">
                             <span class="menu-text">Role Manager</span>
                         </a>
                     </li>
                     <li class="menu-item">
-                        <a href="{{ route('second', ['Hotel', 'create']) }}" class="menu-link">
+                        <a href="{{ route('second', ['users', 'subscribers']) }}" class="menu-link">
                             <span class="menu-text">Subscribers</span>
                         </a>
                     </li>
                     <li class="menu-item">
-                        <a href="{{ route('second', ['Hotel', 'create']) }}" class="menu-link">
+                        <a href="{{ route('second', ['users', 'upgrade-request']) }}" class="menu-link">
                             <span class="menu-text">Upgrade Request</span>
                         </a>
                     </li>
                     <li class="menu-item">
-                        <a href="{{ route('second', ['Hotel', 'create']) }}" class="menu-link">
+                        <a href="{{ route('second', ['users', 'verificaion-request']) }}" class="menu-link">
                             <span class="menu-text">Verification Request</span>
                         </a>
                     </li>
@@ -435,30 +435,26 @@
                 </a>
 
                 <ul class="sub-menu hidden">
+                   
                     <li class="menu-item">
-                        <a href="{{ route('second', ['Hotel', 'Hotels']) }}" class="menu-link">
-                            <span class="menu-text">All Users</span>
-                        </a>
-                    </li>
-                    <li class="menu-item">
-                        <a href="{{ route('second', ['Hotel', 'add-hotel']) }}" class="menu-link">
+                        <a href="{{ route('second', ['userPlan', 'plan']) }}" class="menu-link">
                             <span class="menu-text">User Plans</span>
                         </a>
                     </li>
                     <li class="menu-item">
-                        <a href="{{ route('second', ['Hotel', 'create']) }}" class="menu-link">
+                        <a href="{{ route('second', ['userPlan', 'plan-report']) }}" class="menu-link">
                             <span class="menu-text">Plan Report</span>
                         </a>
                     </li>
                     <li class="menu-item">
-                        <a href="{{ route('second', ['Hotel', 'create']) }}" class="menu-link">
+                        <a href="{{ route('second', ['userPlan', 'plan-request']) }}" class="menu-link">
                             <span class="menu-text">Plan Request</span>
                         </a>
                     </li>
                 </ul>
             </li>
             <li class="menu-item">
-                <a href="{{ route('any', 'index') }}" class="menu-link">
+                <a href="{{ route('any', 'popup') }}" class="menu-link">
                     <span class="menu-icon"><i class="mgc_home_3_line"></i></span>
                     <span class="menu-text"> Popup </span>
                 </a>

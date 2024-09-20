@@ -1,4 +1,4 @@
-@extends('layouts.vertical', ['title' => 'Add New User', 'sub_title' => 'Apps', 'mode' => $mode ?? '', 'demo' => $demo ?? ''])
+@extends('layouts.vertical', ['title' => 'Edit: User Name', 'sub_title' => 'Apps', 'mode' => $mode ?? '', 'demo' => $demo ?? ''])
 
 @section('content')
     <div class="flex gap-4">

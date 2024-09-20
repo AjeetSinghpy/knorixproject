@@ -1,349 +1,88 @@
-@extends('layouts.vertical', ['title' => 'Hotels', 'sub_title' => 'Apps', 'mode' => $mode ?? '', 'demo' => $demo ?? ''])
+@extends('layouts.vertical', ['title' => ' All Hotels', 'sub_title' => 'Apps', 'mode' => $mode ?? '', 'demo' => $demo ?? ''])
 
 @section('content')
 
-<div class="mt-6">
+    <div class="mt-6">
+    
+        <div class="flex justify-between items-center gap-2 p-6">
+            <div></div>
+            <div class="flex gap-2">
+                <a href="{{ route('second', ['hotel', 'add-hotel']) }}" class="btn bg-dark/25 text-sm font-medium text-slate-900 dark:text-slate-200/70 hover:text-white hover:bg-dark/90">Add New Hotel</a>
+            </div>
+        </div>
+
+        <div class="flex items-center gap-2 p-6">
+            <select class="form-select text-sm border-gray-300 rounded-lg">
+                <option value="" disabled selected>Bulk Actions</option>
+                <option value="delete">Delete</option>
+            </select>
+            <button type="button" class="btn bg-dark/25 text-sm font-medium text-slate-900 dark:text-slate-200/70 hover:text-white hover:bg-dark/90 mr-6">
+                Apply
+            </button>
+           
+
+                <div class="flex items-center gap-2">
+                    <input type="text" placeholder="Search by name" class="form-input text-sm border-gray-500 rounded-lg py-2 px-2 w-48" />
+                    <div class="flex items-center gap-4 ml-auto">
+                <select class="form-select text-sm border-gray-300 rounded-lg">
+                    <option value="">--Select--</option>
+                    <option value="option1">Administrator</option>
+                    <option value="option2">Vendor</option>
+                    <option value="option3">Customer</option>
+                </select>
+					<button type="button" class="btn bg-dark/25 text-sm font-medium text-slate-900 dark:text-slate-200/70 hover:text-white hover:bg-dark/90">
+                        Search
+                    </button>
+                </div>
+        </div>
+    </div>
+
 	<div class="card">
-		<div class="flex flex-wrap justify-between items-center gap-2 p-6">
-			<a href="{{ route('second', ['Hotel', 'add-hotel']) }}" class="btn bg-danger/20 text-sm font-medium text-danger hover:text-white hover:bg-danger">
-				<i class="mgc_add_circle_line me-3"></i>
-				Add Hotels</a>
-			<div class="flex flex-wrap gap-2">
-				<button type="button" class="btn bg-success/25 text-lg font-medium text-success hover:text-white hover:bg-success">
-					<i class="mgc_settings_3_line"></i>
-				</button>
-				<button type="button" class="btn bg-dark/25 text-sm font-medium text-slate-900 dark:text-slate-200/70 hover:text-white hover:bg-dark/90">Import</button>
-				<button type="button" class="btn bg-dark/25 text-sm font-medium text-slate-900 dark:text-slate-200/70 hover:text-white hover:bg-dark/90">Export</button>
-			</div>
-		</div>
 		<div class="relative overflow-x-auto">
 			<table class="w-full divide-y divide-gray-300 dark:divide-gray-700">
-				<thead class="bg-slate-300 bg-opacity-20 border-t dark:bg-slate-800 divide-gray-300 dark:border-gray-700">
+				<thead class="">
 					<tr>
-						<th scope="col" class="py-3.5 ps-4 pe-3 text-left text-sm font-semibold text-gray-900 dark:text-gray-200">ID</th>
-						<th scope="col" class="px-3 py-3.5 text-left text-sm font-semibold text-gray-900 dark:text-gray-200">Requested By</th>
-						<th scope="col" class="px-3 py-3.5 text-left text-sm font-semibold text-gray-900 dark:text-gray-200">Subject</th>
-						<th scope="col" class="px-3 py-3.5 text-left text-sm font-semibold text-gray-900 dark:text-gray-200">Assignee</th>
-						<th scope="col" class="px-3 py-3.5 text-left text-sm font-semibold text-gray-900 dark:text-gray-200">Priority</th>
+                        <th scope="col" class="py-3.5 ps-4 pe-3 text-left text-sm font-semibold text-gray-900 dark:text-gray-200">
+                            <input type="checkbox" id="select-all" class="form-checkbox h-5 w-5 text-blue-600"/>
+                        </th>					
+                        <th scope="col" class="px-3 py-3.5 text-left text-sm font-semibold text-gray-900 dark:text-gray-200">Name</th>
+						<th scope="col" class="px-3 py-3.5 text-left text-sm font-semibold text-gray-900 dark:text-gray-200">Location</th>
+						<th scope="col" class="px-3 py-3.5 text-left text-sm font-semibold text-gray-900 dark:text-gray-200">Author</th>
 						<th scope="col" class="px-3 py-3.5 text-left text-sm font-semibold text-gray-900 dark:text-gray-200">Status</th>
-						<th scope="col" class="px-3 py-3.5 text-left text-sm font-semibold text-gray-900 dark:text-gray-200">Created Date</th>
-						<th scope="col" class="px-3 py-3.5 text-left text-sm font-semibold text-gray-900 dark:text-gray-200">Due Date</th>
-						<th scope="col" class="px-3 py-3.5 text-center text-sm font-semibold text-gray-900 dark:text-gray-200">Action</th>
+						<th scope="col" class="px-3 py-3.5 text-left text-sm font-semibold text-gray-900 dark:text-gray-200">Review</th>
+						<th scope="col" class="px-3 py-3.5 text-left text-sm font-semibold text-gray-900 dark:text-gray-200"> Date</th>
 					</tr>
 				</thead>
 				<tbody class="divide-y divide-gray-200 dark:divide-gray-700 ">
 					<tr>
-						<td class="whitespace-nowrap py-4 ps-4 pe-3 text-sm font-medium text-gray-900 dark:text-gray-200">
-							<b>#1020</b>
-						</td>
+                       <td class="py-4 px-3 text-sm">
+                            <input type="checkbox" class="row-checkbox form-checkbox h-5 w-5 text-blue-600"/>
+                        </td>
 						<td class="whitespace-nowrap py-4 pe-3 text-sm">
 							<div class="flex items-center">
-								<div class="h-10 w-10 flex-shrink-0">
-									<img class="h-10 w-10 rounded-full" src="/images/users/avatar-9.jpg" alt="">
-								</div>
-								<div class="font-medium text-gray-900 dark:text-gray-200 ms-4">Lindsay Walton</div>
+								<div class="font-medium text-gray-900 dark:text-gray-200 ms-4">Sarang </div>
 							</div>
 						</td>
-						<td class="whitespace-nowrap py-4 pe-3 text-sm font-medium text-gray-900 dark:text-gray-200">A new rating has been received</td>
-						<td class="whitespace-nowrap py-4 px-3 text-sm">
-							<img class="h-10 w-10 rounded-full" src="/images/users/avatar-9.jpg" alt="">
-						</td>
-						<td class="whitespace-nowrap px-3 py-4 text-sm text-gray-500">
-							<div class="inline-flex items-center gap-1.5 py-1 px-3 rounded text-xs font-medium bg-primary/25 text-primary">Medium</div>
-						</td>
-						<td class="whitespace-nowrap px-3 py-4 text-sm text-gray-500">
-							<div class="inline-flex items-center gap-1.5 py-1 px-3 rounded text-xs font-medium bg-dark/80 text-white">Closed</div>
-						</td>
-						<td class="whitespace-nowrap py-4 pe-3 text-sm font-medium text-gray-900 dark:text-gray-200">13/08/2011</td>
-						<td class="whitespace-nowrap py-4 pe-3 text-sm font-medium text-gray-900 dark:text-gray-200">30/08/2013</td>
-						<td class="whitespace-nowrap py-4 px-3 text-center text-sm font-medium">
-							<a href="javascript:void(0);" class="me-0.5">
-								<i class="mgc_edit_line text-lg"></i>
-							</a>
-							<a href="javascript:void(0);" class="ms-0.5">
-								<i class="mgc_delete_line text-xl"></i>
-							</a>
-						</td>
+						<td class="whitespace-nowrap py-4 pe-3 text-sm font-medium text-gray-900 dark:text-gray-200">delhi</td>
+						<td class="whitespace-nowrap py-4 px-3 text-sm">customer01</td>
+						<td class="whitespace-nowrap px-3 py-4 text-sm text-gray-500">publish</td>
+						<td class="whitespace-nowrap px-3 py-4 text-sm text-gray-500">0</td>
+						<td class="whitespace-nowrap py-4 pe-3 text-sm font-medium text-gray-900 dark:text-gray-200">13/04/2024</td>
+                        <td class="whitespace-nowrap px-3 py-4 text-sm text-gray-500">
+                            <select class="form-select text-xs w-24 border-gray-300 rounded-md dark:border-gray-700 dark:bg-gray-800 dark:text-gray-200">
+                                <option>Action</option>
+								<option value="{{ route('second', ['users', 'add-user']) }}">Edit Hotel</option>
+                                <option>Manage Rooms </option>
+                                <option>Manage Rooms Availability</option>
+                               
+                            </select>
+                        </td>
 					</tr>
 
-					<tr>
-						<td class="whitespace-nowrap py-4 ps-4 pe-3 text-sm font-medium text-gray-900 dark:text-gray-200">
-							<b>#1254</b>
-						</td>
-						<td class="whitespace-nowrap py-4 pe-3 text-sm">
-							<div class="flex items-center">
-								<div class="h-10 w-10 flex-shrink-0">
-									<img class="h-10 w-10 rounded-full" src="/images/users/avatar-2.jpg" alt="">
-								</div>
-								<div class="font-medium text-gray-900 dark:text-gray-200 ms-4">Jhon Maryo</div>
-							</div>
-						</td>
-						<td class="whitespace-nowrap py-4 pe-3 text-sm font-medium text-gray-900 dark:text-gray-200">Your application has been received!</td>
-						<td class="whitespace-nowrap py-4 px-3 text-sm">
-							<img class="h-10 w-10 rounded-full" src="/images/users/avatar-2.jpg" alt="">
-						</td>
-						<td class="whitespace-nowrap px-3 py-4 text-sm text-gray-500">
-							<div class="inline-flex items-center gap-1.5 py-1 px-3 rounded text-xs font-medium bg-danger/25 text-danger">High</div>
-						</td>
-						<td class="whitespace-nowrap px-3 py-4 text-sm text-gray-500">
-							<div class="inline-flex items-center gap-1.5 py-1 px-3 rounded text-xs font-medium bg-dark/80 text-white">Closed</div>
-						</td>
-						<td class="whitespace-nowrap py-4 pe-3 text-sm font-medium text-gray-900 dark:text-gray-200">01/04/2017</td>
-						<td class="whitespace-nowrap py-4 pe-3 text-sm font-medium text-gray-900 dark:text-gray-200">21/05/2017</td>
-						<td class="whitespace-nowrap py-4 px-3 text-center text-sm font-medium">
-							<a href="javascript:void(0);" class="me-0.5">
-								<i class="mgc_edit_line text-lg"></i>
-							</a>
-							<a href="javascript:void(0);" class="ms-0.5">
-								<i class="mgc_delete_line text-xl"></i>
-							</a>
-						</td>
-					</tr>
-
-					<tr>
-						<td class="whitespace-nowrap py-4 ps-4 pe-3 text-sm font-medium text-gray-900 dark:text-gray-200">
-							<b>#1256</b>
-						</td>
-						<td class="whitespace-nowrap py-4 pe-3 text-sm">
-							<div class="flex items-center">
-								<div class="h-10 w-10 flex-shrink-0">
-									<img class="h-10 w-10 rounded-full" src="/images/users/avatar-3.jpg" alt="user">
-								</div>
-								<div class="font-medium text-gray-900 dark:text-gray-200 ms-4">Jerry Geiger</div>
-							</div>
-						</td>
-						<td class="whitespace-nowrap py-4 pe-3 text-sm font-medium text-gray-900 dark:text-gray-200">
-							Support for theme</td>
-						<td class="whitespace-nowrap py-4 px-3 text-sm">
-							<img class="h-10 w-10 rounded-full" src="/images/users/avatar-3.jpg" alt="">
-						</td>
-						<td class="whitespace-nowrap px-3 py-4 text-sm text-gray-500">
-							<div class="inline-flex items-center gap-1.5 py-1 px-3 rounded text-xs font-medium bg-dark/25 text-slate-900 dark:text-slate-200/90">Low</div>
-						</td>
-						<td class="whitespace-nowrap px-3 py-4 text-sm text-gray-500">
-							<div class="inline-flex items-center gap-1.5 py-1 px-3 rounded text-xs font-medium bg-success/90 text-white">Open</div>
-						</td>
-						<td class="whitespace-nowrap py-4 pe-3 text-sm font-medium text-gray-900 dark:text-gray-200">28/07/2020</td>
-						<td class="whitespace-nowrap py-4 pe-3 text-sm font-medium text-gray-900 dark:text-gray-200">28/07/2020</td>
-						<td class="whitespace-nowrap py-4 px-3 text-center text-sm font-medium">
-							<a href="javascript:void(0);" class="me-0.5">
-								<i class="mgc_edit_line text-lg"></i>
-							</a>
-							<a href="javascript:void(0);" class="ms-0.5">
-								<i class="mgc_delete_line text-xl"></i>
-							</a>
-						</td>
-					</tr>
-
-					<tr>
-						<td class="whitespace-nowrap py-4 ps-4 pe-3 text-sm font-medium text-gray-900 dark:text-gray-200">
-							<b>#1352</b>
-						</td>
-						<td class="whitespace-nowrap py-4 pe-3 text-sm">
-							<div class="flex items-center">
-								<div class="h-10 w-10 flex-shrink-0">
-									<img class="h-10 w-10 rounded-full" src="/images/users/avatar-4.jpg" alt="user">
-								</div>
-								<div class="font-medium text-gray-900 dark:text-gray-200 ms-4">Adam Thomas</div>
-							</div>
-						</td>
-						<td class="whitespace-nowrap py-4 pe-3 text-sm font-medium text-gray-900 dark:text-gray-200">Question regarding your Tailwind Theme</td>
-						<td class="whitespace-nowrap py-4 px-3 text-sm">
-							<img class="h-10 w-10 rounded-full" src="/images/users/avatar-4.jpg" alt="">
-						</td>
-						<td class="whitespace-nowrap px-3 py-4 text-sm text-gray-500">
-							<div class="inline-flex items-center gap-1.5 py-1 px-3 rounded text-xs font-medium bg-danger/25 text-danger">High</div>
-						</td>
-						<td class="whitespace-nowrap px-3 py-4 text-sm text-gray-500">
-							<div class="inline-flex items-center gap-1.5 py-1 px-3 rounded text-xs font-medium bg-success/90 text-white">Open</div>
-						</td>
-						<td class="whitespace-nowrap py-4 pe-3 text-sm font-medium text-gray-900 dark:text-gray-200">01/04/2017</td>
-						<td class="whitespace-nowrap py-4 pe-3 text-sm font-medium text-gray-900 dark:text-gray-200">21/05/2017</td>
-						<td class="whitespace-nowrap py-4 px-3 text-center text-sm font-medium">
-							<a href="javascript:void(0);" class="me-0.5">
-								<i class="mgc_edit_line text-lg"></i>
-							</a>
-							<a href="javascript:void(0);" class="ms-0.5">
-								<i class="mgc_delete_line text-xl"></i>
-							</a>
-						</td>
-					</tr>
-
-					<tr>
-						<td class="whitespace-nowrap py-4 ps-4 pe-3 text-sm font-medium text-gray-900 dark:text-gray-200">
-							<b>#2251</b>
-						</td>
-						<td class="whitespace-nowrap py-4 pe-3 text-sm">
-							<div class="flex items-center">
-								<div class="h-10 w-10 flex-shrink-0">
-									<img class="h-10 w-10 rounded-full" src="/images/users/avatar-5.jpg" alt="user">
-								</div>
-								<div class="font-medium text-gray-900 dark:text-gray-200 ms-4">Sara Lewis</div>
-							</div>
-						</td>
-						<td class="whitespace-nowrap py-4 pe-3 text-sm font-medium text-gray-900 dark:text-gray-200">Verify your new email address!</td>
-						<td class="whitespace-nowrap py-4 px-3 text-sm">
-							<img class="h-10 w-10 rounded-full" src="/images/users/avatar-5.jpg" alt="">
-						</td>
-						<td class="whitespace-nowrap px-3 py-4 text-sm text-gray-500">
-							<div class="inline-flex items-center gap-1.5 py-1 px-3 rounded text-xs font-medium bg-danger/25 text-danger">High</div>
-						</td>
-						<td class="whitespace-nowrap px-3 py-4 text-sm text-gray-500">
-							<div class="inline-flex items-center gap-1.5 py-1 px-3 rounded text-xs font-medium bg-success/90 text-white">Open</div>
-						</td>
-						<td class="whitespace-nowrap py-4 pe-3 text-sm font-medium text-gray-900 dark:text-gray-200">20/04/2008</td>
-						<td class="whitespace-nowrap py-4 pe-3 text-sm font-medium text-gray-900 dark:text-gray-200">20/04/2008</td>
-						<td class="whitespace-nowrap py-4 px-3 text-center text-sm font-medium">
-							<a href="javascript:void(0);" class="me-0.5">
-								<i class="mgc_edit_line text-lg"></i>
-							</a>
-							<a href="javascript:void(0);" class="ms-0.5">
-								<i class="mgc_delete_line text-xl"></i>
-							</a>
-						</td>
-					</tr>
-
-					<tr>
-						<td class="whitespace-nowrap py-4 ps-4 pe-3 text-sm font-medium text-gray-900 dark:text-gray-200">
-							<b>#2542</b>
-						</td>
-						<td class="whitespace-nowrap py-4 pe-3 text-sm">
-							<div class="flex items-center">
-								<div class="h-10 w-10 flex-shrink-0">
-									<img class="h-10 w-10 rounded-full" src="/images/users/avatar-6.jpg" alt="user">
-								</div>
-								<div class="font-medium text-gray-900 dark:text-gray-200 ms-4">Myrtle Johnson</div>
-							</div>
-						</td>
-						<td class="whitespace-nowrap py-4 pe-3 text-sm font-medium text-gray-900 dark:text-gray-200">New submission on your website</td>
-						<td class="whitespace-nowrap py-4 px-3 text-sm">
-							<img class="h-10 w-10 rounded-full" src="/images/users/avatar-6.jpg" alt="">
-						</td>
-						<td class="whitespace-nowrap px-3 py-4 text-sm text-gray-500">
-							<div class="inline-flex items-center gap-1.5 py-1 px-3 rounded text-xs font-medium bg-primary/25 text-primary">Medium</div>
-						</td>
-						<td class="whitespace-nowrap px-3 py-4 text-sm text-gray-500">
-							<div class="inline-flex items-center gap-1.5 py-1 px-3 rounded text-xs font-medium bg-dark/80 text-white">Closed</div>
-						</td>
-						<td class="whitespace-nowrap py-4 pe-3 text-sm font-medium text-gray-900 dark:text-gray-200">20/04/2017</td>
-						<td class="whitespace-nowrap py-4 pe-3 text-sm font-medium text-gray-900 dark:text-gray-200">25/04/2017</td>
-						<td class="whitespace-nowrap py-4 px-3 text-center text-sm font-medium">
-							<a href="javascript:void(0);" class="me-0.5">
-								<i class="mgc_edit_line text-lg"></i>
-							</a>
-							<a href="javascript:void(0);" class="ms-0.5">
-								<i class="mgc_delete_line text-xl"></i>
-							</a>
-						</td>
-					</tr>
-
-					<tr>
-						<td class="whitespace-nowrap py-4 ps-4 pe-3 text-sm font-medium text-gray-900 dark:text-gray-200">
-							<b>#3020</b>
-						</td>
-						<td class="whitespace-nowrap py-4 pe-3 text-sm">
-							<div class="flex items-center">
-								<div class="h-10 w-10 flex-shrink-0">
-									<img class="h-10 w-10 rounded-full" src="/images/users/avatar-7.jpg" alt="user">
-								</div>
-								<div class="font-medium text-gray-900 dark:text-gray-200 ms-4">Bryan Collier</div>
-							</div>
-						</td>
-						<td class="whitespace-nowrap py-4 pe-3 text-sm font-medium text-gray-900 dark:text-gray-200">Verify your new email address!</td>
-						<td class="whitespace-nowrap py-4 px-3 text-sm">
-							<img class="h-10 w-10 rounded-full" src="/images/users/avatar-7.jpg" alt="">
-						</td>
-						<td class="whitespace-nowrap px-3 py-4 text-sm text-gray-500">
-							<div class="inline-flex items-center gap-1.5 py-1 px-3 rounded text-xs font-medium bg-danger/25 text-danger">High</div>
-						</td>
-						<td class="whitespace-nowrap px-3 py-4 text-sm text-gray-500">
-							<div class="inline-flex items-center gap-1.5 py-1 px-3 rounded text-xs font-medium bg-success/90 text-white">Open</div>
-						</td>
-						<td class="whitespace-nowrap py-4 pe-3 text-sm font-medium text-gray-900 dark:text-gray-200">02/06/2018</td>
-						<td class="whitespace-nowrap py-4 pe-3 text-sm font-medium text-gray-900 dark:text-gray-200">21/06/2018</td>
-						<td class="whitespace-nowrap py-4 px-3 text-center text-sm font-medium">
-							<a href="javascript:void(0);" class="me-0.5">
-								<i class="mgc_edit_line text-lg"></i>
-							</a>
-							<a href="javascript:void(0);" class="ms-0.5">
-								<i class="mgc_delete_line text-xl"></i>
-							</a>
-						</td>
-					</tr>
-
-					<tr>
-						<td class="whitespace-nowrap py-4 ps-4 pe-3 text-sm font-medium text-gray-900 dark:text-gray-200">
-							<b>#3562</b>
-						</td>
-						<td class="whitespace-nowrap py-4 pe-3 text-sm">
-							<div class="flex items-center">
-								<div class="h-10 w-10 flex-shrink-0">
-									<img class="h-10 w-10 rounded-full" src="/images/users/avatar-8.jpg" alt="user">
-								</div>
-								<div class="font-medium text-gray-900 dark:text-gray-200 ms-4">Joshua Moody</div>
-							</div>
-						</td>
-						<td class="whitespace-nowrap py-4 pe-3 text-sm font-medium text-gray-900 dark:text-gray-200">Security alert for my account</td>
-						<td class="whitespace-nowrap py-4 px-3 text-sm">
-							<img class="h-10 w-10 rounded-full" src="/images/users/avatar-8.jpg" alt="">
-						</td>
-						<td class="whitespace-nowrap px-3 py-4 text-sm text-gray-500">
-							<div class="inline-flex items-center gap-1.5 py-1 px-3 rounded text-xs font-medium bg-dark/25 text-slate-900 dark:text-slate-200/90">Low</div>
-						</td>
-						<td class="whitespace-nowrap px-3 py-4 text-sm text-gray-500">
-							<div class="inline-flex items-center gap-1.5 py-1 px-3 rounded text-xs font-medium bg-success/90 text-white">Open</div>
-						</td>
-						<td class="whitespace-nowrap py-4 pe-3 text-sm font-medium text-gray-900 dark:text-gray-200">28/07/2020</td>
-						<td class="whitespace-nowrap py-4 pe-3 text-sm font-medium text-gray-900 dark:text-gray-200">03/08/2020</td>
-						<td class="whitespace-nowrap py-4 px-3 text-center text-sm font-medium">
-							<a href="javascript:void(0);" class="me-0.5">
-								<i class="mgc_edit_line text-lg"></i>
-							</a>
-							<a href="javascript:void(0);" class="ms-0.5">
-								<i class="mgc_delete_line text-xl"></i>
-							</a>
-						</td>
-					</tr>
-
-					<tr>
-						<td class="whitespace-nowrap py-4 ps-4 pe-3 text-sm font-medium text-gray-900 dark:text-gray-200">
-							<b>#3652</b>
-						</td>
-						<td class="whitespace-nowrap py-4 pe-3 text-sm">
-							<div class="flex items-center">
-								<div class="h-10 w-10 flex-shrink-0">
-									<img class="h-10 w-10 rounded-full" src="/images/users/avatar-9.jpg" alt="user">
-								</div>
-								<div class="ms-4">
-									<div class="font-medium text-gray-900 dark:text-gray-200">John Clune</div>
-									<div class="text-gray-500"></div>
-								</div>
-							</div>
-						</td>
-						<td class="whitespace-nowrap py-4 pe-3 text-sm font-medium text-gray-900 dark:text-gray-200">Item Support Message sent</td>
-						<td class="whitespace-nowrap py-4 px-3 text-sm">
-							<img class="h-10 w-10 rounded-full" src="/images/users/avatar-9.jpg" alt="">
-						</td>
-						<td class="whitespace-nowrap px-3 py-4 text-sm text-gray-500">
-							<div class="inline-flex items-center gap-1.5 py-1 px-3 rounded text-xs font-medium bg-primary/25 text-primary">Medium</div>
-						</td>
-						<td class="whitespace-nowrap px-3 py-4 text-sm text-gray-500">
-							<div class="inline-flex items-center gap-1.5 py-1 px-3 rounded text-xs font-medium bg-dark/80 text-white">Closed</div>
-						</td>
-						<td class="whitespace-nowrap py-4 pe-3 text-sm font-medium text-gray-900 dark:text-gray-200">26/10/2021</td>
-						<td class="whitespace-nowrap py-4 pe-3 text-sm font-medium text-gray-900 dark:text-gray-200">30/10/2021</td>
-						<td class="whitespace-nowrap py-4 px-3 text-center text-sm font-medium">
-							<a href="javascript:void(0);" class="me-0.5">
-								<i class="mgc_edit_line text-lg"></i>
-							</a>
-							<a href="javascript:void(0);" class="ms-0.5">
-								<i class="mgc_delete_line text-xl"></i>
-							</a>
-						</td>
-					</tr>
 				</tbody>
 			</table>
 		</div>
 	</div>
 </div>
+
 @endsection
