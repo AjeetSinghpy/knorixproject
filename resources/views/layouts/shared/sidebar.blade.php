@@ -102,31 +102,27 @@
 
                 <ul class="sub-menu hidden">
                     <li class="menu-item">
-                        <a href="{{ route('second', ['Hotel', 'Hotels']) }}" class="menu-link">
+                        <a href="{{ route('second', ['tour', 'tours']) }}" class="menu-link">
                             <span class="menu-text">All Tours</span>
                         </a>
                     </li>
                     <li class="menu-item">
-                        <a href="{{ route('second', ['Hotel', 'add-hotel']) }}" class="menu-link">
+                        <a href="{{ route('second', ['tour', 'add-tour']) }}" class="menu-link">
                             <span class="menu-text">Add Tours</span>
                         </a>
                     </li>
                     <li class="menu-item">
-                        <a href="{{ route('second', ['Hotel', 'create']) }}" class="menu-link">
+                        <a href="{{ route('second', ['tour', 'category']) }}" class="menu-link">
                             <span class="menu-text">Categories</span>
                         </a>
                     </li>
 
                     <li class="menu-item">
-                        <a href="{{ route('second', ['Hotel', 'create']) }}" class="menu-link">
+                        <a href="{{ route('second', ['tour', 'attribute']) }}" class="menu-link">
                             <span class="menu-text"> Attributes</span>
                         </a>
                     </li>
-                    <li class="menu-item">
-                        <a href="{{ route('second', ['Hotel', 'create']) }}" class="menu-link">
-                            <span class="menu-text">Recovery</span>
-                        </a>
-                    </li>
+                    
                     <li class="menu-item">
                         <a href="{{ route('second', ['Hotel', 'create']) }}" class="menu-link">
                             <span class="menu-text">Availability</span>
@@ -139,7 +135,7 @@
                         </a>
                     </li>
                     <li class="menu-item">
-                        <a href="{{ route('second', ['Hotel', 'create']) }}" class="menu-link">
+                        <a href="{{ route('second', ['tour', 'recovery']) }}" class="menu-link">
                             <span class="menu-text">Recovery</span>
                         </a>
                     </li>
@@ -626,12 +622,12 @@
 
                 <ul class="sub-menu hidden">
                     <li class="menu-item">
-                        <a href="{{ route('second', ['Hotel', 'Hotels']) }}" class="menu-link">
+                        <a href="{{ route('second', ['tools', 'module']) }}" class="menu-link">
                             <span class="menu-text">Modules</span>
                         </a>
                     </li>
                     <li class="menu-item">
-                        <a href="{{ route('second', ['Hotel', 'add-hotel']) }}" class="menu-link">
+                        <a href="{{ route('second', ['tools', 'language']) }}" class="menu-link">
                             <span class="menu-text">Languages</span>
                         </a>
                     </li>

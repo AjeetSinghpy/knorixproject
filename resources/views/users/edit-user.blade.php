@@ -156,10 +156,10 @@
                     <hr class="w-full border-t border-gray-300 mt-2">
                     <form class="w-full">
                         
-                    <div class="w-1/2 mb-4">
-                        <label for="photo" class="block text-sm font-medium text-gray-700">Upload Photo</label>
-                        <input type="file" id="photo" name="photo" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm">
-                    </div>
+                        <div class="w-1/2 mb-4">
+                            <label for="photo" class="block text-sm font-medium text-gray-700">Upload Photo</label>
+                            <input type="file" id="photo" name="photo" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm">
+                        </div>
                     </form>
                 </div>
             </div>
