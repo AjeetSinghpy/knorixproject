@@ -1,4 +1,4 @@
-@extends('layouts.vertical', ['title' => 'Add New Hotel', 'sub_title' => 'Apps', 'mode' => $mode ?? '', 'demo' => $demo ?? ''])
+@extends('layouts.vertical', ['title' => 'Edit:Hotel Name', 'sub_title' => 'Apps', 'mode' => $mode ?? '', 'demo' => $demo ?? ''])
 
 @section('content')
     <div class="flex gap-4">

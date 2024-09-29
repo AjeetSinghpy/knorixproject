@@ -1,4 +1,4 @@
-@extends('layouts.vertical', ['title' => 'Add New Hotel', 'sub_title' => 'Apps', 'mode' => $mode ?? '', 'demo' => $demo ?? ''])
+@extends('layouts.vertical', ['title' => 'Add New Space', 'sub_title' => 'Apps', 'mode' => $mode ?? '', 'demo' => $demo ?? ''])
 
 @section('content')
     <div class="flex gap-4">
@@ -7,7 +7,7 @@
         <div class="flex-1 flex flex-col gap-4">
             <div class="card">
                 <div class="flex flex-wrap justify-between items-center gap-2 p-6">
-                    <h2 class="text-xl font-bold">Hotel Content</h2>
+                    <h2 class="text-xl font-bold">Space Content</h2>
                     <hr class="w-full border-t border-gray-300 mt-2">
                     <form class="w-full">
                         <div class="mb-4">
@@ -29,28 +29,8 @@
                                 <input type="text" id="title" name="title" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm" placeholder="Enter the title">
                         </div>
 
-						<div class="w-1/2 mb-4">
-                                <label for="photo" class="block text-sm font-medium text-gray-700">Upload Photo</label>
-                                <input type="file" id="photo" name="photo" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm">
-                        </div>
-                    </form>
-                </div>
-            </div>
-
-            <div class="card">
-                <div class="flex flex-wrap justify-between items-center gap-2 p-6">
-                    <h2 class="text-xl font-bold">Hotel Policy</h2>
-                    <hr class="w-full border-t border-gray-300 mt-2">
-                    <form class="w-full">
-  
-					<div class="w-full mb-4">
-                            <label for="price" class="block text-sm font-medium text-gray-700">Hotel Rating Standard</label>
-                            <input type="number" id="price" name="price" min=""  step="1" required
-                            class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm" placeholder="policy">
-                    </div>
-
-					<div class="w-full mb-4">
-                                <h3 class="">Policy</h3>   
+                        <div class="w-full mb-4">
+                                <h3 class="">FAQs</h3>   
                                 <div class="border border-gray-300 p-4 rounded-md">
                                     <table class="w-full table-auto border-separate border-spacing-4">
                                         <thead>
@@ -63,65 +43,98 @@
                                     </table>     
                                 </div>
                             </div>
-							<div class="flex justify-end">
-                                <button class="bg-blue-600 text-white px-4 py-2 rounded-md hover:bg-blue-700">Add Item</button>
-                            </div>
-                            
+
+						<div class="w-1/2 mb-4">
+                                <label for="photo" class="block text-sm font-medium text-gray-700">Upload Photo</label>
+                                <input type="file" id="photo" name="photo" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm">
+                        </div>
                     </form>
                 </div>
             </div>
 
             <div class="card">
                 <div class="flex flex-wrap justify-between items-center gap-2 p-6">
-                    <h2 class="text-xl font-bold">Check in /out time</h2>
+                    <h2 class="text-xl font-bold">Extra Information</h2>
                     <hr class="w-full border-t border-gray-300 mt-2">
                     <form class="w-full">
-						<div class="flex gap-4">
-                            <div class="w-1/2 mb-4">
-                                <label for="hotelName" class="block text-sm font-medium text-gray-700">Time for check in </label>
-                                <input type="text" id="hotelName" name="hotelName" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm" placeholder="Eg :11:00 AM">
+                        <div class="flex items-center gap-4 mb-4">
+
+                            <div class="w-full mb-4">
+                                <label for="price" class="block text-sm font-medium text-gray-700">No.Bed</label>
+                                    <input type="number" id="price" name="price" min=""  step="1" required
+                                        class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm" placeholder="Ex:3">
                             </div>
-                            <div class="w-1/2 mb-4">
-                                <label for="hotelLocation" class="block text-sm font-medium text-gray-700">Time for check out</label>
-                                <input type="text" id="hotelLocation" name="hotelLocation" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm" placeholder="Eg: 12:00 PM">
+
+                            <div class="w-full mb-4">
+                                <label for="role" class="block text-sm font-medium text-gray-700">No.Bathroom</label>
+                                <input type="number" id="price" name="price" min=""  step="1" required
+                                class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm" placeholder="Ex: 5">
+                            </div>
+
+                            <div class="w-full mb-4">
+                                <label for="role" class="block text-sm font-medium text-gray-700">Square</label>
+                                <input type="number" id="price" name="price" min=""  step="1" required
+                                class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm" placeholder="Ex: 100">
                             </div>
                         </div>
 
-						    <div class="flex items-center gap-4 mb-4">
 
-                                <div class="w-full mb-4">
-                                    <label for="price" class="block text-sm font-medium text-gray-700">Minimum advance reservations</label>
-                                        <input type="number" id="price" name="price" min=""  step="1" required
-                                            class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm" placeholder="Ex:3">
-                                </div>
 
-                                <div class="w-full mb-4">
-                                    <label for="role" class="block text-sm font-medium text-gray-700">Miinimum day stay requirments</label>
+                        <div class="flex items-center gap-4 mb-4">
+
+                            <div class="w-full mb-4">
+                                <label for="price" class="block text-sm font-medium text-gray-700">Minimum Advance Reservations</label>
                                     <input type="number" id="price" name="price" min=""  step="1" required
-                                    class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm" placeholder="Ex: 2">
-                                </div>
+                                        class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm" placeholder="Ex:3">
+                                        Leave blank if you dont need to use the min day option
+                                    </div>
+
+                            <div class="w-full mb-4">
+                                <label for="role" class="block text-sm font-medium text-gray-700">Minimum day stay requirments</label>
+                                <input type="number" id="price" name="price" min=""  step="1" required
+                                class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm" placeholder="Ex: 5">
+                                Leave blank if you dont need to set minimum day stay option
                             </div>
+                        </div>
+					
                     </form>
                 </div>
             </div>
 
-			<div class="card">
+            <div class="card">
                 <div class="flex flex-wrap justify-between items-center gap-2 p-6">
                     <h2 class="text-xl font-bold">Pricing</h2>
                     <hr class="w-full border-t border-gray-300 mt-2">
                     <form class="w-full">
-						<div class="w-full mb-4">
-							<label for="role" class="block text-sm font-medium text-gray-700">Price</label>
-							<input type="number" id="price" name="price" min=""  step="1" required
-							class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm" placeholder="hotel price">
-						</div>
+						
+						    <div class="flex items-center gap-4 mb-4">
 
-						<div class="w-full mb-4">
-                            <input type="checkbox" id="hide_service" name="hide_service" class="form-checkbox h-5 w-5 text-blue-600">
+                                <div class="w-full mb-4">
+                                    <label for="price" class="block text-sm font-medium text-gray-700">Price</label>
+                                        <input type="number" id="price" name="price" min=""  step="1" required
+                                            class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm" placeholder="space price">
+                                </div>
+
+                                <div class="w-full mb-4">
+                                    <label for="role" class="block text-sm font-medium text-gray-700">Sale Price</label>
+                                    <input type="number" id="price" name="price" min=""  step="1" required
+                                    class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm" placeholder="space sale price">
+                                    If the regular price is less than the discount , it will show the regular price
+                                </div>
+                            </div>
+
+                            <div class="w-full mb-4">
+                                <label for="price" class="block text-sm font-medium text-gray-700">Max Guests</label>
+                                <input type="number" id="price" name="price" min=""  step="1" required
+                                 class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm" placeholder="space price">
+                            </div>
+
+                            <div class="w-full mb-4">
+                                <input type="checkbox" id="hide_service" name="hide_service" class="form-checkbox h-5 w-5 text-blue-600">
                        			 Enable extra price
-                        </div>
+                           </div>
 
-						<div class="w-full mb-4">
+                           <div class="w-full mb-4">
                                 <h3 class="">Extra Price</h3>   
                                 <div class="border border-gray-300 p-4 rounded-md">
                                     <table class="w-full table-auto border-separate border-spacing-4">
@@ -140,24 +153,14 @@
                                 <button class="bg-blue-600 text-white px-4 py-2 rounded-md hover:bg-blue-700">Add Item</button>
                             </div>
 
-
-							<div class="w-full mb-4">
-							 <label for="role" class="block text-sm font-medium text-gray-700"> Service Price</label>
-						    </div>
-
-							<div class="w-full mb-4">
-								<input type="checkbox" id="hide_service" name="hide_service" class="form-checkbox h-5 w-5 text-blue-600">
-									Enable service fee
-							</div>
-
-						<div class="w-full mb-4">
-                                <h3 class="">Buyer Fees</h3>   
+                            <div class="w-full mb-4">
+                                <h3 class="">Diacount by number of day or night</h3>   
                                 <div class="border border-gray-300 p-4 rounded-md">
                                     <table class="w-full table-auto border-separate border-spacing-4">
                                         <thead>
                                             <tr>
-                                                <th class="text-left text-sm font-medium text-gray-700">Name</th>
-                                                <th class="text-left text-sm font-medium text-gray-700">Price</th>
+                                                <th class="text-left text-sm font-medium text-gray-700">From-To</th>
+                                                <th class="text-left text-sm font-medium text-gray-700">Discount</th>
                                                 <th class="text-left text-sm font-medium text-gray-700">Type</th>
                                             </tr>
                                         </thead>
@@ -168,9 +171,17 @@
                             <div class="flex justify-end">
                                 <button class="bg-blue-600 text-white px-4 py-2 rounded-md hover:bg-blue-700">Add Item</button>
                             </div>
+
+                            <div class="w-full mb-4">
+                            <label for="price" class="block text-sm font-medium text-gray-700">Service fee</label>
+                                <input type="checkbox" id="hide_service" name="hide_service" class="form-checkbox h-5 w-5 text-blue-600">
+                       			 Enable service fee
+                           </div>
                     </form>
                 </div>
             </div>
+
+		
 
 			<div class="card">
                 <div class="flex flex-wrap justify-between items-center gap-2 p-6">
@@ -333,18 +344,21 @@
                     <hr class="w-full border-t border-gray-300 mt-2">
 
 					<div class="w-full mb-4">
-                            <label for="hide_service" class="block text-sm font-medium text-gray-700">Hotel featured</label>
+                            <label for="hide_service" class="block text-sm font-medium text-gray-700">Space featured</label>
                             <input type="checkbox" id="hide_service" name="hide_service" class="form-checkbox h-5 w-5 text-blue-600">
                         Enable featured
                     </div>
 
-					<div class="mb-4">
-                            <label for="title" class="block text-sm font-medium text-gray-700">Hotel Related IDs</label>
-                            <input type="text" id="title" name="title" required
-                                class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm"
-                                placeholder="Eg:100,200">
-								seprated by comma
-                    </div>
+					<div class="w-full mb-4">
+                    <label for="hide_service" class="block text-sm font-medium text-gray-700">Default States</label>
+
+                        <select id="role" name="role" required
+                            class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm">
+                            <option value="">-- please select--</option>
+                            <option value="">Always available</option>
+                            <option value="">available on only speific dates</option>
+                        </select>
+                   </div>
                     
                 </div>
             </div>
@@ -352,48 +366,52 @@
 
 			<div class="card">
                 <div class="flex flex-wrap justify-between items-center gap-2 p-6">
-                    <h2 class="text-xl font-bold">Attribute:Property type</h2>
+                    <h2 class="text-xl font-bold">Attribute:Space type</h2>
                     <hr class="w-full border-t border-gray-300 mt-2">
 
 					<div class="w-full">
                             <input type="checkbox" id="hide_service" name="hide_service" class="form-checkbox h-5 w-5 text-blue-600">
-                             Apartments
+                             Auditorium
                     </div>
 					<div class="w-full" >
                             <input type="checkbox" id="hide_service" name="hide_service" class="form-checkbox h-5 w-5 text-blue-600">
-                             Hotel
+                             Bar
                     </div>
                     <div class="w-full" >
                             <input type="checkbox" id="hide_service" name="hide_service" class="form-checkbox h-5 w-5 text-blue-600">
-                             Home Stays
+                             Cafe
                     </div>
 					<div class="w-full" >
                             <input type="checkbox" id="hide_service" name="hide_service" class="form-checkbox h-5 w-5 text-blue-600">
-                             Villas
+                             Ballroom
                     </div>
 					<div class="w-full" >
                             <input type="checkbox" id="hide_service" name="hide_service" class="form-checkbox h-5 w-5 text-blue-600">
-                             Boats
+                             Sance studio
                     </div>
 					<div class="w-full" >
                             <input type="checkbox" id="hide_service" name="hide_service" class="form-checkbox h-5 w-5 text-blue-600">
-                             Motels
+                             Office
                     </div>
 					<div class="w-full" >
                             <input type="checkbox" id="hide_service" name="hide_service" class="form-checkbox h-5 w-5 text-blue-600">
-                             Resorts
+                             Party Hall
                     </div>
 					<div class="w-full" >
                             <input type="checkbox" id="hide_service" name="hide_service" class="form-checkbox h-5 w-5 text-blue-600">
-                             Lodges
+                             Recording studio
                     </div>
 					<div class="w-full" >
                             <input type="checkbox" id="hide_service" name="hide_service" class="form-checkbox h-5 w-5 text-blue-600">
-                             Holiday homes
+                             Yoga Studio
                     </div>
 					<div class="w-full" >
                             <input type="checkbox" id="hide_service" name="hide_service" class="form-checkbox h-5 w-5 text-blue-600">
-                             Cruises
+                             Villa
+                    </div>
+                    <div class="w-full" >
+                            <input type="checkbox" id="hide_service" name="hide_service" class="form-checkbox h-5 w-5 text-blue-600">
+                             Warehouse
                     </div>
                 </div>
             </div>
@@ -401,73 +419,44 @@
 
 			<div class="card">
                 <div class="flex flex-wrap justify-between items-center gap-2 p-6">
-                    <h2 class="text-xl font-bold">Attribute:Facilities</h2>
+                    <h2 class="text-xl font-bold">Attribute:Amenities</h2>
                     <hr class="w-full border-t border-gray-300 mt-2">
 					<div class="w-full">
                             <input type="checkbox" id="hide_service" name="hide_service" class="form-checkbox h-5 w-5 text-blue-600">
-                             Wake-up call
+                             Air Conditioning
                     </div>
 					<div class="w-full" >
                             <input type="checkbox" id="hide_service" name="hide_service" class="form-checkbox h-5 w-5 text-blue-600">
-                             Car hire
+                             Breakfast
                     </div>
                     <div class="w-full" >
                             <input type="checkbox" id="hide_service" name="hide_service" class="form-checkbox h-5 w-5 text-blue-600">
-                             Bicycle hire
+                             Kitchen
                     </div>
 					<div class="w-full" >
                             <input type="checkbox" id="hide_service" name="hide_service" class="form-checkbox h-5 w-5 text-blue-600">
-                             Flat TV
+                             Parking
                     </div>
 					<div class="w-full" >
                             <input type="checkbox" id="hide_service" name="hide_service" class="form-checkbox h-5 w-5 text-blue-600">
-							Laundry and dry cleaning
+							Pool
                     </div>
 					<div class="w-full" >
                             <input type="checkbox" id="hide_service" name="hide_service" class="form-checkbox h-5 w-5 text-blue-600">
-                             Internet-Wifi
+                             Wi-Fi Internet
                     </div>
-					<div class="w-full" >
-                            <input type="checkbox" id="hide_service" name="hide_service" class="form-checkbox h-5 w-5 text-blue-600">
-                             Coffee and tea
-                    </div>
+					
                     
                 </div>
             </div>
 				<br>
 			<div class="card">
                 <div class="flex flex-wrap justify-between items-center gap-2 p-6">
-                    <h2 class="text-xl font-bold">Pulish</h2>
+                    <h2 class="text-xl font-bold">Aattribute:Test</h2>
                     <hr class="w-full border-t border-gray-300 mt-2">
 
-					<div class="w-full">
-                            <input type="checkbox" id="hide_service" name="hide_service" class="form-checkbox h-5 w-5 text-blue-600">
-							Havana Lobby bar
-                    </div>
-					<div class="w-full" >
-                            <input type="checkbox" id="hide_service" name="hide_service" class="form-checkbox h-5 w-5 text-blue-600">
-							Fiesta Restaurant
-                    </div>
-                    <div class="w-full" >
-                            <input type="checkbox" id="hide_service" name="hide_service" class="form-checkbox h-5 w-5 text-blue-600">
-							Hotel transport services
-                    </div>
-					<div class="w-full" >
-                            <input type="checkbox" id="hide_service" name="hide_service" class="form-checkbox h-5 w-5 text-blue-600">
-							Free luggage deposit
-                    </div>
-					<div class="w-full" >
-                            <input type="checkbox" id="hide_service" name="hide_service" class="form-checkbox h-5 w-5 text-blue-600">
-							Laundry Services
-                    </div>
-					<div class="w-full" >
-                            <input type="checkbox" id="hide_service" name="hide_service" class="form-checkbox h-5 w-5 text-blue-600">
-							Pets welcome
-                    </div>
-					<div class="w-full" >
-                            <input type="checkbox" id="hide_service" name="hide_service" class="form-checkbox h-5 w-5 text-blue-600">
-							Tickets
-                    </div>
+                    <input type="text" id="title" name="title" requiredclass="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm"
+                     placeholder="">
                     
                 </div>
             </div>
@@ -481,6 +470,21 @@
                                 <label for="photo" class="block text-sm font-medium text-gray-700">Upload image</label>
                                 <input type="file" id="photo" name="photo" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm">
                         </div>
+                    
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="flex flex-wrap justify-between items-center gap-2 p-6">
+                    <h2 class="text-xl font-bold">Ical</h2>
+                    <hr class="w-full border-t border-gray-300 mt-2">
+
+					<div class="w-1/2 mb-4">
+                                <label for="photo" class="block text-sm font-medium text-gray-700">import url</label>
+
+                                <input type="text" id="title" name="title" requiredclass="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm"
+                               placeholder="">    
+                    </div>
                     
                 </div>
             </div>

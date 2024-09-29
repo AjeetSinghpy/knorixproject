@@ -64,7 +64,7 @@
 
                 <ul class="sub-menu hidden">
                     <li class="menu-item">
-                        <a href="{{ route('second', ['Hotel', 'Hotels']) }}" class="menu-link">
+                        <a href="{{ route('second', ['hotel', 'Hotels']) }}" class="menu-link">
                             <span class="menu-text">All Hotels</span>
                         </a>
                     </li>
@@ -74,18 +74,18 @@
                         </a>
                     </li>
                     <li class="menu-item">
-                        <a href="{{ route('second', ['Hotel', 'create']) }}" class="menu-link">
+                        <a href="{{ route('second', ['hotel', 'attribute']) }}" class="menu-link">
                             <span class="menu-text">Attributes</span>
                         </a>
                     </li>
 
                     <li class="menu-item">
-                        <a href="{{ route('second', ['Hotel', 'create']) }}" class="menu-link">
+                        <a href="{{ route('second', ['hotel', 'room-attribute']) }}" class="menu-link">
                             <span class="menu-text">Room Attributes</span>
                         </a>
                     </li>
                     <li class="menu-item">
-                        <a href="{{ route('second', ['Hotel', 'create']) }}" class="menu-link">
+                        <a href="{{ route('second', ['hotel', 'recovery']) }}" class="menu-link">
                             <span class="menu-text">Recovery</span>
                         </a>
                     </li>
@@ -145,18 +145,24 @@
             <li class="menu-item">
                 <a href="javascript:void(0)" data-fc-type="collapse" class="menu-link">
                     <span class="menu-icon"><i class="mgc_building_2_line"></i></span>
-                    <span class="menu-text"> All Space </span>
+                    <span class="menu-text"> Space </span>
                     <span class="menu-arrow"></span>
                 </a>
 
                 <ul class="sub-menu hidden">
+
+                <li class="menu-item">
+                        <a href="{{ route('second', ['space', 'spaces']) }}" class="menu-link">
+                            <span class="menu-text">All Spaces</span>
+                        </a>
+                    </li>
                     <li class="menu-item">
-                        <a href="{{ route('second', ['Hotel', 'Hotels']) }}" class="menu-link">
+                        <a href="{{ route('second', ['space', 'add-space']) }}" class="menu-link">
                             <span class="menu-text">Add New Space</span>
                         </a>
                     </li>
                     <li class="menu-item">
-                        <a href="{{ route('second', ['Hotel', 'add-hotel']) }}" class="menu-link">
+                        <a href="{{ route('second', ['space', 'attribute']) }}" class="menu-link">
                             <span class="menu-text">Attributes</span>
                         </a>
                     </li>
@@ -166,7 +172,7 @@
                         </a>
                     </li>
                     <li class="menu-item">
-                        <a href="{{ route('second', ['Hotel', 'create']) }}" class="menu-link">
+                        <a href="{{ route('second', ['space', 'recovery']) }}" class="menu-link">
                             <span class="menu-text">Recovery</span>
                         </a>
                     </li>
