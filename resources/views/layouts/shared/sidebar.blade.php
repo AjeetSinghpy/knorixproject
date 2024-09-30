@@ -187,13 +187,20 @@
                 </a>
 
                 <ul class="sub-menu hidden">
+
+                <li class="menu-item">
+                        <a href="{{ route('second', ['car', 'cars']) }}" class="menu-link">
+                            <span class="menu-text">All Cars</span>
+                        </a>
+                    </li>
+
                     <li class="menu-item">
-                        <a href="{{ route('second', ['Hotel', 'Hotels']) }}" class="menu-link">
+                        <a href="{{ route('second', ['car', 'add-car']) }}" class="menu-link">
                             <span class="menu-text">Add New Car</span>
                         </a>
                     </li>
                     <li class="menu-item">
-                        <a href="{{ route('second', ['Hotel', 'add-hotel']) }}" class="menu-link">
+                        <a href="{{ route('second', ['car', 'attribute']) }}" class="menu-link">
                             <span class="menu-text">Attributes</span>
                         </a>
                     </li>
@@ -203,7 +210,7 @@
                         </a>
                     </li>
                     <li class="menu-item">
-                        <a href="{{ route('second', ['Hotel', 'create']) }}" class="menu-link">
+                        <a href="{{ route('second', ['car', 'recovery']) }}" class="menu-link">
                             <span class="menu-text">Recovery</span>
                         </a>
                     </li>
@@ -215,16 +222,22 @@
                     <span class="menu-icon"><i class="mgc_building_2_line"></i></span>
                     <span class="menu-text"> Boat </span>
                     <span class="menu-arrow"></span>
+                   
                 </a>
 
                 <ul class="sub-menu hidden">
+                <li class="menu-item">
+                        <a href="{{ route('second', ['boat', 'boats']) }}" class="menu-link">
+                            <span class="menu-text">All Boats</span>
+                        </a>
+                    </li>
                     <li class="menu-item">
-                        <a href="{{ route('second', ['Hotel', 'Hotels']) }}" class="menu-link">
+                        <a href="{{ route('second', ['boat', 'add-boat']) }}" class="menu-link">
                             <span class="menu-text">Add New Boat</span>
                         </a>
                     </li>
                     <li class="menu-item">
-                        <a href="{{ route('second', ['Hotel', 'add-hotel']) }}" class="menu-link">
+                        <a href="{{ route('second', ['boat', 'attribute']) }}" class="menu-link">
                             <span class="menu-text">Attributes</span>
                         </a>
                     </li>
@@ -234,7 +247,7 @@
                         </a>
                     </li>
                     <li class="menu-item">
-                        <a href="{{ route('second', ['Hotel', 'create']) }}" class="menu-link">
+                        <a href="{{ route('second', ['boat', 'recovery']) }}" class="menu-link">
                             <span class="menu-text">Recovery</span>
                         </a>
                     </li>
@@ -249,14 +262,20 @@
                 </a>
 
                 <ul class="sub-menu hidden">
+
                     <li class="menu-item">
-                        <a href="{{ route('second', ['Hotel', 'Hotels']) }}" class="menu-link">
+                        <a href="{{ route('second', ['event', 'events']) }}" class="menu-link">
+                            <span class="menu-text">All Events</span>
+                        </a>
+                    </li>
+                    <li class="menu-item">
+                        <a href="{{ route('second', ['event', 'add-event']) }}" class="menu-link">
                             <span class="menu-text">Add New Event</span>
                         </a>
                     </li>
                     <li class="menu-item">
-                        <a href="{{ route('second', ['Hotel', 'add-hotel']) }}" class="menu-link">
-                            <span class="menu-text">Attributes</span>
+                        <a href="{{ route('second', ['event', 'attribute']) }}" class="menu-link">
+                            <span class="menu-text">Attributoes</span>
                         </a>
                     </li>
                     <li class="menu-item">
@@ -265,7 +284,7 @@
                         </a>
                     </li>
                     <li class="menu-item">
-                        <a href="{{ route('second', ['Hotel', 'create']) }}" class="menu-link">
+                        <a href="{{ route('second', ['event', 'recovery']) }}" class="menu-link">
                             <span class="menu-text">Recovery</span>
                         </a>
                     </li>
@@ -274,7 +293,7 @@
 
             
             <li class="menu-item">
-                <a href="{{ route('any', 'index') }}" class="menu-link">
+                <a href="{{ route('second', ['coupon', 'coupons']) }}" class="menu-link">
                     <span class="menu-icon"><i class="mgc_home_3_line"></i></span>
                     <span class="menu-text"> Coupon </span>
                 </a>
